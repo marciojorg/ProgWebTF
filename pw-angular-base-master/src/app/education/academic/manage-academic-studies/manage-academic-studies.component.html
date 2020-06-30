@@ -1,0 +1,60 @@
+<div class="panel-container">
+  <h2>
+    <span>Manage Academic Studies</span>
+
+    <button id="create-entity" class="btn btn-primary float-right" [routerLink]="['new']">
+      <i class="fa fa-plus"></i>
+      <span>Create a Academic Study</span>
+    </button>
+  </h2>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="academics?.length === 0">
+    <span>No projects found</span>
+  </div>
+
+  <div class="table-responsive" id="academicsTable" *ngIf="academics?.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+      <tr>
+        <th scope="col" ><span>ID</span></th>
+        <th scope="col" ><span>educationalInstitution</span></th>
+        <th scope="col" ><span>formation</span></th>
+        <th scope="col" ><span>grade</span></th>
+        <th scope="col" ><span>activities</span></th>
+        <th scope="col" ><span>fieldOfStudy</span></th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let academic of academics ;trackBy: trackId">
+        <td><a [routerLink]="[academic.id, 'view']">{{ academic.id }}</a></td>
+        <td>{{ academic.educationalInstitution }}</td>
+        <td>{{ academic.formation }}</td>
+        <td>{{ academic.grade }}</td>
+        <td>{{ academic.activities }}</td>
+        <td>{{ academic.fieldOfStudy }}</td>
+
+        <td class="text-right">
+          <div class="btn-group">
+            <button type="submit" [routerLink]="[academic.id, 'view']" class="btn btn-info btn-sm">
+              <i class="fa fa-eye"></i>
+              <span class="d-none d-md-inline">View</span>
+            </button>
+
+            <button type="submit" [routerLink]="[academic.id, 'edit']" class="btn btn-primary btn-sm">
+              <i class="fa fa-pencil"></i>
+              <span class="d-none d-md-inline">Edit</span>
+            </button>
+
+            <button type="submit" (click)="delete(academic)" class="btn btn-danger btn-sm">
+              <i class="fa fa-times"></i>
+              <span class="d-none d-md-inline">Delete</span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
