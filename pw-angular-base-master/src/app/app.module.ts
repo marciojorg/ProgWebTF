@@ -17,6 +17,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import {UniversityModule} from './university/university.module';
+import {ContactModule} from './contact/contact.module';
+import {ProfileModule} from './profile/profile.module';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyBIKkh-C9keJdp0WhQ8-dFhcxBqzMIxacU',
@@ -42,7 +45,10 @@ export const firebaseConfig = {
     SharedModule,
     HomeModule,
     ProjectModule,
+    ContactModule,
     EducationModule,
+    ProfileModule,
+    UniversityModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true

@@ -15,7 +15,6 @@ export class ManageAcademicStudiesDeleteDialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   clear(): void {
     this.activeModal.dismiss();
   }
@@ -29,5 +28,4 @@ export class ManageAcademicStudiesDeleteDialogComponent implements OnInit {
         this.toastr.error('An error occurred while deleting Academic with ID: ' + id , 'Error');
       });
   }
-
 }

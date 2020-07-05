@@ -1,0 +1,72 @@
+<div class="panel-container">
+  <form [formGroup]="manageCourseForm" (ngSubmit)="saveAcademic()">
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputCursoNome">Name</label>
+        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('cursoNome').invalid && (manageCourseForm.get('cursoNome').dirty || manageCourseForm.get('cursoNome').touched) && manageCourseForm.controls['cursoNome'].errors ? 'is-invalid' : ''"
+               id="inputCursoNome" placeholder="Curso Nome" formControlName="cursoNome">
+        <div class="invalid-feedback" *ngIf="manageCourseForm.get('cursoNome').invalid && (manageCourseForm.get('cursoNome').dirty || manageCourseForm.get('cursoNome').touched)">
+          <span *ngIf="manageCourseForm.controls['cursoNome'].hasError('required')">This field is required</span>
+          <span *ngIf="manageCourseForm.controls['cursoNome'].hasError('maxlength')">Max length of this field is 50 characters</span>
+        </div>
+      </div>
+
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputGrau">Degree</label>
+        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('grau').invalid && (manageCourseForm.get('grau').dirty || manageCourseForm.get('grau').touched) && manageCourseForm.controls['grau'].errors ? 'is-invalid' : ''"
+               id="inputGrau" placeholder="Grau" formControlName="grau">
+        <div class="invalid-feedback" *ngIf="manageCourseForm.get('grau').invalid && (manageCourseForm.get('grau').dirty || manageCourseForm.get('grau').touched)">
+          <span *ngIf="manageCourseForm.controls['grau'].hasError('grau')">This field is required</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4 mb-4">
+        <label for="inputDuracao">Duration</label>
+        <input type="number" class="form-control" [ngClass]="manageCourseForm.get('duracao').invalid && (manageCourseForm.get('duracao').dirty || manageCourseForm.get('duracao').touched) && manageCourseForm.controls['duracao'].errors ? 'is-invalid' : ''"
+               id="inputDuracao" placeholder="6 (meses)" formControlName="duracao">
+        <div class="invalid-feedback" *ngIf="manageCourseForm.get('duracao').invalid && (manageCourseForm.get('duracao').dirty || manageCourseForm.get('duracao').touched)">
+          <span *ngIf="manageCourseForm.controls['duracao'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+
+      <div class="form-group col-md-4 mb-4">
+        <label for="inputEtcs">Etcs</label>
+        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('etcs').invalid && (manageCourseForm.get('etcs').dirty || manageCourseForm.get('etcs').touched) && manageCourseForm.controls['etcs'].errors ? 'is-invalid' : ''"
+               id="inputEtcs" placeholder="Etcs" formControlName="etcs">
+        <div class="invalid-feedback" *ngIf="manageCourseForm.get('etcs').invalid && (manageCourseForm.get('etcs').dirty || manageCourseForm.get('etcs').touched)">
+          <span *ngIf="manageCourseForm.controls['etcs'].hasError('etcs')">This field is required</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-8 mb-8">
+        <label for="inputDescricao">Duration</label>
+
+        <textarea type="text" class="form-control" [ngClass]="manageCourseForm.get('descricao').invalid && (manageCourseForm.get('descricao').dirty || manageCourseForm.get('descricao').touched) && manageCourseForm.controls['descricao'].errors ? 'is-invalid' : ''"
+                  id="inputDescricao" placeholder="descricao" formControlName="descricao" rows="5"></textarea>
+        <div class="invalid-feedback" *ngIf="manageCourseForm.get('descricao').invalid && (manageCourseForm.get('descricao').dirty || manageCourseForm.get('descricao').touched)">
+          <span *ngIf="manageCourseForm.controls['descricao'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row margin-top-10">
+      <div class="col-12">
+        <re-captcha formControlName="formRecaptcha"></re-captcha>
+      </div>
+    </div>
+
+    <div class="margin-top-20">
+      <button type="button" id="cancel-save" class="btn btn-secondary margin-right-10" (click)="previousState()">
+        <i class="fa fa-ban"></i><span>Cancel</span>
+      </button>
+      <button type="submit" id="save-entity" [disabled]="manageCourseForm.invalid || isSaving" class="btn btn-primary">
+        <i class="fa fa-save"></i><span>Save</span>
+      </button>
+    </div>
+  </form>
+</div>
+

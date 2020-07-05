@@ -1,0 +1,93 @@
+<div class="panel-container">
+  <form [formGroup]="manageCertificationsForm" (ngSubmit)="saveCertification()">
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputCertName">Cert Name</label>
+        <input type="text" class="form-control" [ngClass]="manageCertificationsForm.get('certName').invalid && (manageCertificationsForm.get('certName').dirty || manageCertificationsForm.get('certName').touched) && manageCertificationsForm.controls['certName'].errors ? 'is-invalid' : ''"
+               id="inputCertName" placeholder="Cert Name" formControlName="certName">
+        <div class="invalid-feedback" *ngIf="manageCertificationsForm.get('certName').invalid && (manageCertificationsForm.get('certName').dirty || manageCertificationsForm.get('certName').touched)">
+          <span *ngIf="manageCertificationsForm.controls['certName'].hasError('required')">This field is required</span>
+          <span *ngIf="manageCertificationsForm.controls['certName'].hasError('maxlength')">Max length of this field is 50 characters</span>
+        </div>
+      </div>
+
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputIssuingOrg">Issuing Org</label>
+        <input type="text" class="form-control" [ngClass]="manageCertificationsForm.get('issuingOrg').invalid && (manageCertificationsForm.get('issuingOrg').dirty || manageCertificationsForm.get('issuingOrg').touched) && manageCertificationsForm.controls['issuingOrg'].errors ? 'is-invalid' : ''"
+               id="inputIssuingOrg" placeholder="Issuing Org" formControlName="issuingOrg">
+        <div class="invalid-feedback" *ngIf="manageCertificationsForm.get('issuingOrg').invalid && (manageCertificationsForm.get('issuingOrg').dirty || manageCertificationsForm.get('issuingOrg').touched)">
+          <span *ngIf="manageCertificationsForm.controls['issuingOrg'].hasError('required')">This field is required</span>
+          <span *ngIf="manageCertificationsForm.controls['issuingOrg'].hasError('maxlength')">Max length of this field is 50 characters</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputCertCode">Cert Code</label>
+        <input type="text" class="form-control" [ngClass]="manageCertificationsForm.get('certCode').invalid && (manageCertificationsForm.get('certCode').dirty || manageCertificationsForm.get('certCode').touched) && manageCertificationsForm.controls['certCode'].errors ? 'is-invalid' : ''"
+               id="inputCertCode" placeholder="Cert Code" formControlName="certCode">
+        <div class="invalid-feedback" *ngIf="manageCertificationsForm.get('certCode').invalid && (manageCertificationsForm.get('certCode').dirty || manageCertificationsForm.get('certCode').touched)">
+          <span *ngIf="manageCertificationsForm.controls['certCode'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-3 mb-3">
+        <label for="inputExpireDate">Expire Date</label>
+        <input type="text" class="form-control" [ngClass]="manageCertificationsForm.get('expireDate').invalid && (manageCertificationsForm.get('expireDate').dirty || manageCertificationsForm.get('expireDate').touched) && manageCertificationsForm.controls['expireDate'].errors ? 'is-invalid' : ''"
+               id="inputExpireDate" placeholder="Expire Date" formControlName="expireDate">
+        <div class="invalid-feedback" *ngIf="manageCertificationsForm.get('expireDate').invalid && (manageCertificationsForm.get('expireDate').dirty || manageCertificationsForm.get('expireDate').touched)">
+          <span *ngIf="manageCertificationsForm.controls['expireDate'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+
+      <div class="form-group col-md-3 mb-3">
+        <label for="inputIssuingDate">Issuing Date</label>
+        <input type="text" class="form-control" [ngClass]="manageCertificationsForm.get('issuingDate').invalid && (manageCertificationsForm.get('issuingDate').dirty || manageCertificationsForm.get('issuingDate').touched) && manageCertificationsForm.controls['issuingDate'].errors ? 'is-invalid' : ''"
+               id="inputIssuingDate" placeholder="Issuing Date" formControlName="issuingDate">
+        <div class="invalid-feedback" *ngIf="manageCertificationsForm.get('issuingDate').invalid && (manageCertificationsForm.get('issuingDate').dirty || manageCertificationsForm.get('issuingDate').touched)">
+          <span *ngIf="manageCertificationsForm.controls['issuingDate'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputCertUrl">Cert Url</label>
+        <input type="text" class="form-control" [ngClass]="manageCertificationsForm.get('certUrl').invalid && (manageCertificationsForm.get('certUrl').dirty || manageCertificationsForm.get('certUrl').touched) && manageCertificationsForm.controls['certUrl'].errors ? 'is-invalid' : ''"
+               id="inputCertUrl" placeholder="Cert Url" formControlName="certUrl">
+        <div class="invalid-feedback" *ngIf="manageCertificationsForm.get('certUrl').invalid && (manageCertificationsForm.get('certUrl').dirty || manageCertificationsForm.get('certUrl').touched)">
+          <span *ngIf="manageCertificationsForm.controls['certUrl'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="expiresCheckBox" formControlName="expires">
+          <label class="form-check-label" for="expiresCheckBox">
+            expires
+          </label>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row margin-top-10">
+      <div class="col-12">
+        <re-captcha formControlName="formRecaptcha"></re-captcha>
+      </div>
+    </div>
+
+    <div class="margin-top-20">
+      <button type="button" id="cancel-save" class="btn btn-secondary margin-right-10" (click)="previousState()">
+        <i class="fa fa-ban"></i><span>Cancel</span>
+      </button>
+      <button type="submit" id="save-entity" [disabled]="manageCertificationsForm.invalid || isSaving" class="btn btn-primary">
+        <i class="fa fa-save"></i><span>Save</span>
+      </button>
+    </div>
+  </form>
+</div>
+

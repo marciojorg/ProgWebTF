@@ -1,0 +1,57 @@
+<div class="panel-container">
+  <h2>
+    <span>Manage Teachers</span>
+
+    <button id="create-entity" class="btn btn-primary float-right" [routerLink]="['new']">
+      <i class="fa fa-plus"></i>
+      <span>Create a Teachers</span>
+    </button>
+  </h2>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="teachers?.length === 0">
+    <span>No Teachers found</span>
+  </div>
+
+  <div class="table-responsive" id="teacherTable" *ngIf="teachers?.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+      <tr>
+        <th scope="col" ><span>ID</span></th>
+        <th scope="col" ><span>Name</span></th>
+        <th scope="col" ><span>Nickname</span></th>
+        <th scope="col" ><span>email</span></th>
+        <th scope="col" ><span>Description</span></th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let teacher of teachers ;trackBy: trackId">
+        <td><a [routerLink]="[teacher.id, 'view']">{{ teacher.id }}</a></td>
+        <td>{{ teacher.teacherNome }}</td>
+        <td>{{ teacher.teacherApelido }}</td>
+        <td>{{ teacher.email }}</td>
+        <td>{{ teacher.descricaot }}</td>
+        <td class="text-right">
+          <div class="btn-group">
+            <button type="submit" [routerLink]="[teacher.id, 'view']" class="btn btn-info btn-sm">
+              <i class="fa fa-eye"></i>
+              <span class="d-none d-md-inline">View</span>
+            </button>
+
+            <button type="submit" [routerLink]="[teacher.id, 'edit']" class="btn btn-primary btn-sm">
+              <i class="fa fa-pencil"></i>
+              <span class="d-none d-md-inline">Edit</span>
+            </button>
+
+            <button type="submit" (click)="delete(teacher)" class="btn btn-danger btn-sm">
+              <i class="fa fa-times"></i>
+              <span class="d-none d-md-inline">Delete</span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" [routerLink]="['/']">
-    <img src="../../../assets/images/linkedin_logo.png" width="50" height="50" alt="Logo image">
+    <img src="../../../assets/images/logo_ulht.png" width="50" height="50" alt="Logo image">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="#"[routerLink]="['profile/profile']">
           <i class="fa fa-id-card-o"></i>
           <span>Profile</span>
         </a>
@@ -48,13 +48,15 @@
           <span>University</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="universityNavbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/university/managecourse']">Manage Courses</a>
+          <a class="dropdown-item" [routerLink]="['/university/managesubjects']">Manage Subjects</a>
+          <a class="dropdown-item" [routerLink]="['/university/manageteachers']">Manage Teachers</a>
 
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="#"[routerLink]="['/contact/contact']">
           <i class="fa fa-envelope-o">
-              <span class="badge badge-danger">11</span>
           </i>
           <span>Contacts</span>
         </a>

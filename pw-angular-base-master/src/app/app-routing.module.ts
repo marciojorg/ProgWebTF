@@ -13,6 +13,18 @@ const appRoutes: Routes = [
     path: 'education',
     loadChildren: './education/education.module#EducationModule'
   },
+  {
+    path: 'university',
+    loadChildren: './university/university.module#UniversityModule'
+  },
+  {
+    path: 'contact',
+    loadChildren: './contact/contact.module#ContactModule'
+  },
+  {
+    path: 'profile',
+    loadChildren: './profile/profile.module#ProfileModule'
+  },
   ...LAYOUT_ROUTES
 ];
 

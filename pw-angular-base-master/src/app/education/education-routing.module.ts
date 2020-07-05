@@ -5,6 +5,9 @@ import { ManageCertificationsComponent } from './certifications/manage-certifica
 import {AcademicResolver} from './academic/academic.resolver';
 import {ManageAcademicStudiesDetailComponent} from './academic/manage-academic-studies/manage-academic-studies-detail.component';
 import {ManageAcademicStudiesUpdateComponent} from './academic/manage-academic-studies/manage-academic-studies-update.component';
+import {ManageCertificationsDetailComponent} from './certifications/manage-certifications/manage-certifications-detail.component';
+import {CertificationResolver} from './certifications/certification.resolver';
+import {ManageCertificationsUpdateComponent} from './certifications/manage-certifications/manage-certifications-update.component';
 
 const routes: Routes = [
   {
@@ -18,26 +21,47 @@ const routes: Routes = [
         path: 'manageacademicstudies/:id/view',
         component: ManageAcademicStudiesDetailComponent,
         resolve: {
-          project: AcademicResolver
+          academic: AcademicResolver
         }
       },
       {
         path: 'manageacademicstudies/new',
         component: ManageAcademicStudiesUpdateComponent,
         resolve: {
-          project: AcademicResolver
+          academic: AcademicResolver
         }
       },
       {
         path: 'manageacademicstudies/:id/edit',
         component: ManageAcademicStudiesUpdateComponent,
         resolve: {
-          project: AcademicResolver
+          academic: AcademicResolver
         }
       },
       {
         path: 'maangecertifications',
         component: ManageCertificationsComponent
+      },
+      {
+        path: 'maangecertifications/:id/view',
+        component: ManageCertificationsDetailComponent,
+        resolve: {
+          certification: CertificationResolver
+        }
+      },
+      {
+        path: 'maangecertifications/new',
+        component: ManageCertificationsUpdateComponent,
+        resolve: {
+          certification: CertificationResolver
+        }
+      },
+      {
+        path: 'maangecertifications/:id/edit',
+        component: ManageCertificationsUpdateComponent,
+        resolve: {
+          certification: CertificationResolver
+        }
       }]
   }];
 

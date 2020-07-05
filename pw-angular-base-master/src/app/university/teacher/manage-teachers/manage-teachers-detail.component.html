@@ -1,0 +1,44 @@
+<div class="row justify-content-center panel-container">
+
+  <div class="col-8">
+    <div *ngIf="teacher">
+      <h2><span>Teacher</span> {{ teacher.teacherNome }}</h2>
+      <hr>
+      <dl class="row-md entity-details">
+        <dt><span >ID</span></dt>
+        <dd>
+          <span>{{ teacher.id }}</span>
+        </dd>
+        <dt><span> Name </span></dt>
+        <dd>
+          <span>{{ teacher.teacherNome }}</span>
+        </dd>
+        <dt><span >Nickname</span></dt>
+        <dd>
+          <span>{{ teacher.teacherApelido }}</span>
+        </dd>
+        <dt><span >Email</span></dt>
+        <dd>
+          <span>{{ teacher.email }}</span>
+        </dd>
+        <dt><span>Habilitações Academicas</span></dt>
+        <dd>
+          <span>{{ teacher.habilitacoesAcademicas }}</span>
+        </dd>
+        <dt><span>Descrition</span></dt>
+        <dd>
+          <span>{{ teacher.descricaot }}</span>
+        </dd>
+
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info margin-right-10">
+        <i class="fa fa-arrow-left"></i><span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/university/manageteachers', teacher.id, 'edit']" class="btn btn-primary">
+        <i class="fa fa-pencil"></i><span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

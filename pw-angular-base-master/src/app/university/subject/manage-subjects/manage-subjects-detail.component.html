@@ -1,0 +1,45 @@
+<div class="row justify-content-center panel-container">
+
+  <div class="col-8">
+    <div *ngIf="subject">
+      <h2><span>Subject</span> {{ subject.id }}</h2>
+      <hr>
+      <dl class="row-md entity-details">
+        <dt><span >ID</span></dt>
+        <dd>
+          <span>{{ subject.id }}</span>
+        </dd>
+        <dt><span >Subject Nome</span></dt>
+        <dd>
+          <span>{{ subject.subjectNome }}</span>
+        </dd>
+        <dt><span >Ects</span></dt>
+        <dd>
+          <span>{{ subject.ects }}</span>
+        </dd>
+        <dt><span >Year</span></dt>
+        <dd>
+          <span>{{ subject.ano }}</span>
+        </dd>
+        <dt><span>Code</span></dt>
+        <dd>
+          <span>{{ subject.codigo }}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+          <span>{{ subject.descricao }}</span>
+        </dd>
+
+      </dl>
+
+
+      <button type="submit" (click)="previousState()" class="btn btn-info margin-right-10">
+        <i class="fa fa-arrow-left"></i><span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/university/managesubjects', subject.id, 'edit']" class="btn btn-primary">
+        <i class="fa fa-pencil"></i><span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
