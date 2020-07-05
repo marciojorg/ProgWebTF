@@ -11,16 +11,9 @@ import {TeacherService} from '../university/teacher/teacher.service';
 export class HomeComponent implements OnInit {
   teachers: ITeacher[] | null = null;
 
-  constructor(private teacherService: TeacherService, private spinner: NgxSpinnerService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.spinner.show();
-    this.teacherService.getTeachers().subscribe(data => {
-      this.spinner.hide();
-      this.teachers = data;
-    }, err => {
-      this.spinner.hide();
-    });
 
   }
 

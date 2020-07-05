@@ -1,20 +1,48 @@
 <main role="main">
 
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="mt-5 jumbotron">
+
+
+  <section id="desc">
     <div class="container">
-      <h1 class="display-3">Actualizações da Pagina</h1>
+    <div class="row" >
+      <div class="col-md-6 testDesc">
+        <h1>Universidade Lusófona</h1>
+        <h3>A maior Universidade Privada Portuguesa</h3>
+        <a href="https://www.ulusofona.pt/" class="btn  btn-secondary btn-lg">Saber Mais</a>
+      </div>
+
+
+      <div class="col-md-4">
+
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Teacher</h5>
+            <p class="card-text">Opção para verificar a lista de  professores existentes</p>
+            <a href="#" [routerLink]="['/university/manageteachers']" class="card-link">consultar</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Course</h5>
+            <p class="card-text">Opção para verificar a lista de  professores existentes</p>
+            <a href="#" [routerLink]="['/university/managecourse']"  class="card-link">consultar</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Subject</h5>
+            <p class="card-text">Opção para verificar a lista de  professores existentes</p>
+            <a href="#"  [routerLink]="['/university/managesubjects']" class="card-link">consultar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+
     </div>
-  </div>
 
-  <div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-
-    </div>
-
-    <hr>
-
-  </div> <!-- /container -->
-
+      </div>
+    <!-- /container -->
+  </section>
 </main>
